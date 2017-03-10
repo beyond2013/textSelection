@@ -24,12 +24,50 @@ extendSelection = function(buttonId){
   else if(element.id == "Next"){
     var selection = window.getSelection();
     selection.modify("extend","right", "word");
+
   }
   else if(element.id == "Move"){
     var selection = window.getSelection();
-    console.log(selection);
-    console.log(selection.modify("move", "backward", "word"));
+    console.log("selection.toString(): " + selection.toString());
+    console.log("selection.length: " + selection.toString().length);
+  range = document.createRange();
+  target = " " + previousWord() + " ";
+  indexPW = sentence.innerHTML.indexOf(target);
+  console.log("indexPW: " + indexPW);
+  range.setStart(sentence.firstChild,indexPW+1);
+  range.setEnd(sentence.firstChild,(index + selection.toString().length));
+  selection.removeAllRanges();
+  selection.addRange(range);
   }
 }
 
+tokenize = function(){
+var divsentence = document.getElementById("sentence");
+var sentence = divsentence.innerHTML;
+console.log(sentence);
+var words = sentence.split(" ");
+console.log(words);
 
+}
+
+previousWord = function(){
+  var pw="";
+  var sentence = document.getElementById("sentence").innerHTML;
+  var selection = window.getSelection();
+  console.log("selection: " + selection);
+  index = sentence.indexOf(selection);
+  console.log("indexOf(selection): " + index);
+  var sentArray = sentence.split(" ");
+  console.log("sentArray: " + sentArray);
+  var firstWord = selection.toString().split(" ")[0];
+  console.log("firstWord: " + firstWord);
+  var firstWordIndex= sentArray.indexOf(firstWord);
+  if(firstWordIndex >=1){
+    console.log("Previous Word :" + sentArray[firstWordIndex-1]);
+    pw = sentArray[firstWordIndex - 1];
+  }
+ else{
+   pw = sentArray[0];
+ }
+ return pw;
+} 
