@@ -2,4 +2,4 @@
 
 A small javascript application that allows user to make selection in given contents by supplying target text and using buttons instead of mouse.
 
-![textSelection.png](textSelection.png)
+![textselection.png](textselection.png)
