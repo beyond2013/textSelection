@@ -31,10 +31,12 @@ undoExtension = function(){
 moveSelection = function(){
   var textNode = document.getElementById('sentence').firstChild,
       selection = window.getSelection(),
-      textNode = document.getElementById('sentence').firstChild,
       range = document.createRange();
   console.log('selection.toString(): ' + selection.toString());
   console.log('selection.length: ' + selection.toString().length);
+  if(selection.toString().length === 0){
+    return;
+  }
   var target = ' ' + previousWord() + ' ';
   indexPW = textNode.nodeValue.indexOf(target);
   console.log('indexPW: ' + indexPW);
