@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
     <title>Text Selection Javascript Example</title>
-    <script src="script/textselection.js">
+    <script src='script/textselection.js'>
     </script>
   </head>
   <body>
-    <div id="sentence">This is an example. Select text chunk of any length and then press the button below.</div>
+    <div id='sentence'>This is an example. Select text chunk of any length and then press the button below.</div>
     </br>
-    <b> Selection: </b> <input type="text" id= "target" value="an example"/> 
+    <b> Selection: </b> <input type='text' id= 'source' value='an example'/> 
     <br> <br>
-    <input type="button" value= "Select" onclick="getSelectionText()">
-    <button type="button" value="Remove Selection" onclick="removeSelection()"> Remove Selection</button> 
-    <button type="button" id="Previous" onclick="extendSelection('Previous')">Extend Selection < Previous</button>
-    <button type="button" id="Next" onclick="extendSelection('Next')">Extend Selection > Next</button>
-    <button type="button" id="Move" onclick="extendSelection('Move')">Move Selection</button>
-    <button type="button" id="Move" onclick="previousWord()">PreviousWord</button>
-
+    <input type='button' value= 'Select' id = 'select' onclick='getSource()'>
+    <button type='button' value='Remove Selection' onclick='removeSelection()'> Remove Selection</button> 
+    <button type='button' id='undoExtension' onclick='undoExtension()'>Undo Extension</button>
+    <button type='button' id='extendSelectionForward' onclick='extendSelectionForward()'>Extend Selection Forward</button>
+    <button type='button' id='moveSelection' onclick='moveSelection()'>Move Selection</button>
   </body>
 </html>
