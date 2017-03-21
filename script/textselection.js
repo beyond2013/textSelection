@@ -1,3 +1,10 @@
+window.onload = function(){
+  document.getElementById('select').addEventListener('click', getSource);
+  document.getElementById('undoExtension').addEventListener('click', undoExtension);
+  document.getElementById('removeSelection').addEventListener('click', removeSelection);
+  document.getElementById('extendForward').addEventListener('click', extendForward);
+  document.getElementById('extendBackward').addEventListener('click', extendBackward);
+}
 getSource = function(){
   var textNode = document.getElementById('sentence').firstChild,
       source = document.getElementById('source');
@@ -20,7 +27,7 @@ removeSelection = function(){
   selection.removeAllRanges();
 }
 
-extendSelectionForward = function(){
+extendForward = function(){
     var selection = window.getSelection();
     selection.modify('extend','right', 'word');
 }
@@ -28,7 +35,7 @@ undoExtension = function(){
     var selection = window.getSelection();
     selection.modify('extend', 'left', 'word');
 }
-moveSelection = function(){
+extendBackward = function(){
   var textNode = document.getElementById('sentence').firstChild,
       selection = window.getSelection(),
       range = document.createRange();
