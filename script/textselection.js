@@ -17,35 +17,26 @@ function addMarkup(){
 }
 function getText(){
   var text = document.getElementById('sentence');
-  console.log("text: " + text);
   source = document.getElementById('source');
   var selection = document.getSelection(),
       range  = document.createRange();
   var value = source.value,
       start = text.innerHTML.indexOf(value);
-  console.log("start= " + start);
   selection.removeAllRanges();
   if(value.length === 0 || start.index === -1){
     return;
   }
-  console.log("childNodes: " + text.childNodes.length);
- var str="source located at: ";
- if(text.hasChildNodes()){
    for(var i=0;i< text.childNodes.length;i++)
    {
      childNode = text.childNodes[i];
-     if(childNode.nodeType == 3){
-      if(childNode.nodeValue.indexOf(value) >=0){
-         str += childNode.nodeValue; 
-         start = childNode.nodeValue.indexOf(value);
+     nodeValue = childNode.nodeValue;
+     if(childNode.nodeType == 3 && nodeValue.indexOf(value) >=0 ){
+         start = nodeValue.indexOf(value);
          range.setStart(childNode,start);
          range.setEnd(childNode,(start + value.length));
          selection.addRange(range);
-      }
      }
    }
- }
-
 }
 function getSource(){
   var textNode = document.getElementById('sentence').firstChild,
